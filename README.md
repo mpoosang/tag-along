@@ -1,3 +1,5 @@
-Tag Along 
+Thinkful: API Hack Capstone
 
-Tag Along helps dog owners search for dog friendly businesses in different cities
+Live Website: https://mpoosang.github.io/tag-along/
+
+Tag Along helps dog owners search for dog friendly businesses (restaurants, coffee shops, bars, parks, and hotels) nearby.
