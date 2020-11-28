@@ -10,42 +10,49 @@
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <div class="container">
-        <h1>Tag Along</h1>
+    <div class="landing-page">
+        <header>
+            <h1>Tag Along</h1>
+        </header>
 
+        <h3>Discover dog friendly businesses nearby!</h3>
+        <p>By choosing a category and location below, Tag Along will fetch currently open businesses that match your selection.</p>
         <form id="js-search-form" role="search">
-            <div class="horizontal">
-                <div class="search-bar">
-                    <span>Type: </span>
-                    <select name="type" id="js-type" size="1" required>
-                        <option value="">select type</option>
-                        <option value="food">Food</option>
-                        <option value="coffee">Coffee</option>
-                        <option value="parks">Parks</option>
-                        <option value="hotels">Hotels</option>
-                    </select>
-                </div>
-                <div class="search-bar">
-                    <label for="location">Location: </label>
-                    <input id="location" type="text" placeholder="address, city, state, or zip" required>
-                </div>
-                    <input type="submit" id="fetch" value="Fetch!">
-            </div>     
-        </form>
-        
-
-        <section class="results ">
-            <div id="map"></div>
-            <div class="listings">
-                Listings
+            <div class="search-bar search-left">
+                <span>Type: </span>
+                <select name="type" id="js-type" size="1" required>
+                    <option value="">select type</option>
+                    <option value="restaurants">Restaurants</option>
+                    <option value="coffee">Coffee</option>
+                    <option value="bars">Bars</option>
+                    <option value="parks">Parks</option>
+                    <option value="hotels">Hotels</option>
+                </select>
             </div>
-        </section>
-
+            <div class="search-bar search-right">
+                <label for="user-location">Location: </label>
+                <input id="user-location" type="text" placeholder="address, city, or zip" required>
+            </div>
+                <input type="submit" id="fetch" value="Fetch!">
+        </form>
+        <p id="js-error-message" class="error-message"></p>
     </div>
+
+    <main class="js-results hidden" role="main">
+        <div class="left">
+            <div id="map"></div>
+        </div>
+        <div class="right">
+            <div class="js-listings">
+                <ul id="results-list"></ul>
+            </div>
+        </div>
+    </main>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
     <script src="main.js"></script>
     <script defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZYc2Nmydt0EWSBQpxBjR44m2z2Qda1qc&callback=initMap"></script>
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZYc2Nmydt0EWSBQpxBjR44m2z2Qda1qc&libraries=places&callback=initMap">
+</script>
 </body>
 </html>
