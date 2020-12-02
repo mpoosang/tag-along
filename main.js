@@ -2,7 +2,8 @@
 
 // Global Variables
 let map;
-let infoWindow;
+let infoObj = [];
+// let infowindow;
 // let autocomplete;
 
 let mapState = {
@@ -14,7 +15,6 @@ let mapState = {
 // creates new map
 function initMap() {
     $("#map").empty();
-    // $("#map").show();
 
     mapState.map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: mapState.latitude, lng: mapState.longitude },
@@ -37,6 +37,8 @@ function getListings(userType, inputLocation) {
         location: inputLocation,
         categories: userType,
         open_now: true,
+        // limit: '5',
+        radius: 10000,
         sort_by: 'distance'
     };
 
@@ -74,14 +76,13 @@ function displayResults(responseJson) {
     console.log(responseJson);
     // if there are previous results, remove them
     $('#results-list').empty();
-    // iterate through the array, stopping at the max number of results
     for (let i = 0; i < responseJson.businesses.length; i++) {
         // for each object in the array, add a list item to the results
         $('#results-list').append(
-            `<li><h3><a href="${responseJson.businesses[i].url}">${responseJson.businesses[i].name}</a></h3>
+            `<li><h3 class='bizHeading'><a href="${responseJson.businesses[i].url}">${responseJson.businesses[i].name}</a></h3>
             <div class='biz-food'><span class='biz-rating'>${responseJson.businesses[i].rating}</span> / <span class='biz-type'>${responseJson.businesses[i].categories[0].title}</span></div>
             <div class='biz-address'>${responseJson.businesses[i].location.display_address}</div>
-            <div class='biz-address'>${responseJson.businesses[i].display_phone}</div>
+            <div class='biz-phone'>${responseJson.businesses[i].display_phone}</div>
             </li>
             `
         )
@@ -93,20 +94,22 @@ function displayResults(responseJson) {
         bizNames.push(responseJson.businesses[i].name);
 
         // add marker
+        let image = 'photos/favicon.png';
         let marker = new google.maps.Marker({
             position: {lat: bizLat, lng: bizLng},
-            map: mapState.map
+            map: mapState.map,
+            icon: image
         });
 
         // business info for map info window
         markers.push(marker);
-        let bizInfo = '<div><h4 class="bizHeading">' + responseJson.businesses[i].name + '</h4></div>' + '<div>' + responseJson.businesses[i].location.display_address + '</div>';
+        let bizInfo = '<div><h4 class="bizInfoHeading">' + responseJson.businesses[i].name + '</h4></div>' + '<div>' + responseJson.businesses[i].location.display_address + '</div>';
         addBizBox(marker, bizInfo);
 
         mapState.latitude = responseJson.region.center.latitude;
         mapState.longitude = responseJson.region.center.longitude;
         mapState.map.setCenter({lat: mapState.latitude, lng: mapState.longitude});
-        mapState.map.setZoom(12);
+        mapState.map.setZoom(13);
 
     }
     // //display the results section 
@@ -115,13 +118,25 @@ function displayResults(responseJson) {
 
 // create info window for each business on the map
 function addBizBox(marker, bizInfo) {
-    var infoWindow = new google.maps.InfoWindow({
+    var infowindow = new google.maps.InfoWindow({
         content: bizInfo
     });
 
     marker.addListener('click', function() {
-        infoWindow.open(marker.get('map'), marker);
+        closeOtherInfo();
+        // opens info window for the clicked marker
+        infowindow.open(map, marker);
+        infoObj[0] = infowindow;
     });
+}
+
+// closes info window
+function closeOtherInfo() {
+    if (infoObj.length > 0) {
+        infoObj[0].set('marker', null);
+        infoObj[0].close();
+        infoObj[0].length = 0;
+    }
 }
 
 function handleSubmit() {
