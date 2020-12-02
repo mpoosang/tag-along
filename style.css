@@ -1,17 +1,27 @@
 * {
     box-sizing: border-box;
+    margin: 0;
 }
 
 html, body {
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
 }
 
 body {
+    margin: 0;
     font-family: 'Roboto', sans-serif;
-    /* margin: 5%; */
+}
+
+.hero-image {
+    background-image: url('photos/dog-background.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
 }
 
 .landing-page {
@@ -22,27 +32,34 @@ h1 {
     text-transform: uppercase;
 }
 
+.title-type, label {
+    margin-top: 6px;
+}
+
 .search-bar {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: 5px;
+    margin: 10px;
 }
 
-input {
-    /* padding: 5px; */
+#js-type, #user-location {
+    width: 300px;
+    padding: 5px;
 }
 
 select, input[type=text] {
     width: 15%;
-    margin-left: 7px;
+    margin-left: 8px;
     border: ;
 }
 
 input[type="submit"] {
-    margin: 5px;
     color: ;
     background-color: ;
+    margin: 5px;
+    padding: 5px;
+    width: 70px;
 }
 
 input[type="submit"]:hover {
@@ -75,16 +92,22 @@ main {
     /* height: 100%; */
     height: 700px;
     width: 100%;
-    border-radius: 3px;
+    border-radius: 2px;
 }
 
 .right {
     float: right;
-    overflow: scroll;
+    /* overflow: scroll; */
+    margin-right: 10px;
 }
 
 #results-list {
     list-style: none;
+    margin: 5px;
+}
+
+.bizHeading, .bizInfoHeading {
+    margin-bottom: 5px;
 }
 
 .biz-rating {
@@ -95,8 +118,8 @@ main {
     font-style: italic;
 }
 
-.bizHeading {
-    margin-bottom: 5px;
+.biz-phone {
+    margin-bottom: 25px;
 }
 
 a {
@@ -117,9 +140,9 @@ a:hover {
 
 /* When a web browser is larger than 600px,
    apply these rules */
-   /* @media all and (min-width: 600px) {
+   @media all and (min-width: 600px) {
     .container {
-        max-width: 600px;
+        /* max-width: 600px; */
     }
 
-} */
+}
