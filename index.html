@@ -10,7 +10,34 @@
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <div class="landing-page">
+    <header class="hero-image">
+        <div class="landing-page">
+            <h1>Tag Along</h1>
+            <h3>Discover dog friendly businesses nearby!</h3>
+            <p>By choosing a category and location below, Tag Along will fetch currently open businesses that match your selection.</p>
+            <form id="js-search-form" role="search">
+                <div class="search-bar search-left">
+                    <span class="title-type">Type: </span>
+                    <select name="type" id="js-type" size="1" required>
+                        <option value="">select type</option>
+                        <option value="restaurants">Restaurants</option>
+                        <option value="coffee">Coffee</option>
+                        <option value="bars">Bars</option>
+                        <option value="parks">Parks</option>
+                        <option value="hotels">Hotels</option>
+                    </select>
+                </div>
+                <div class="search-bar search-right">
+                    <label for="user-location">Location: </label>
+                    <input id="user-location" type="text" placeholder="address, city, or zip" required>
+                </div>
+                    <input type="submit" id="fetch" value="Fetch!">
+            </form>
+            <p id="js-error-message" class="error-message"></p>
+        </div>
+    </header>
+    
+    <!-- <div class="landing-page">
         <header>
             <h1>Tag Along</h1>
         </header>
@@ -36,9 +63,9 @@
                 <input type="submit" id="fetch" value="Fetch!">
         </form>
         <p id="js-error-message" class="error-message"></p>
-    </div>
+    </div> -->
 
-    <main class="js-results hidden" role="main">
+    <main class="js-results hidden">
         <div class="left">
             <div id="map"></div>
         </div>
