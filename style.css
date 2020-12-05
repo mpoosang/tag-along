@@ -8,31 +8,50 @@ html, body {
     padding: 0;
     height: 100%;
     width: 100%;
-}
-
-body {
-    margin: 0;
+    font-size: 100%;
     font-family: 'Roboto', sans-serif;
 }
 
-.hero-image {
-    background-image: url('photos/dog-background.jpg');
+body {
+    background-image: url('photos/dog-background1.jpg');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
     height: 100%;
     width: 100%;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    justify-content: center;
 }
 
 .landing-page {
+    font-size: 1rem;
+    text-align: center;
+    margin: 7% 2% 0 2%;
+}
+
+.tag-along-logo {
+    height: auto;
+    max-width: 100%;
+}
+
+.discover {
+    font-size: 5.5vw;
+    font-family: 'Merriweather', serif;
+    margin-top: 8%;
+}
+
+.app-intro {
+    font-size: 4.4vw;
+    text-shadow: 1.5px 1.5px #ffffff;
+    margin: 2% 5% 10% 5%;
     text-align: center;
 }
 
-h1 {
-    text-transform: uppercase;
-}
-
-.title-type, label {
+ label {
     margin-top: 6px;
 }
 
@@ -41,29 +60,36 @@ h1 {
     flex-direction: row;
     justify-content: center;
     margin: 10px;
+    font-size: 4.4vw;
+}
+
+.search-left {
+    margin-top: 15px;
 }
 
 #js-type, #user-location {
-    width: 300px;
+    width: 65%;
     padding: 5px;
 }
 
 select, input[type=text] {
+    font-size: 4.4vw;
     width: 15%;
     margin-left: 8px;
-    border: ;
 }
 
 input[type="submit"] {
-    color: ;
-    background-color: ;
+    font-size: 4.4vw;
+    color: #000000;
+    background-color: #fff1d0;
     margin: 5px;
     padding: 5px;
-    width: 70px;
+    width: 20%;
 }
 
 input[type="submit"]:hover {
     cursor: pointer;
+    background-color: #f8f529;
 }
 
 .error-message {
@@ -71,8 +97,10 @@ input[type="submit"]:hover {
 }
 
 main {
-    margin: 0 auto;
-    display: flex;
+    /* margin: 0 auto; */
+    margin-top: 10%;
+    width: 100%;
+    display: block;
 }
 
 .hidden {
@@ -80,34 +108,40 @@ main {
 }
 
 .left {
-    float: left;
     width: 100%;
-    height: 100%;
-    padding-right: 1px;
+    height: 175px;
+    padding: 20, 0, 20, 0px;
+    margin-bottom: 25px;
 }
 
 #map {
-    float: left;
-    position: fixed;
-    /* height: 100%; */
-    height: 700px;
+    height: 200px;
     width: 100%;
     border-radius: 2px;
 }
 
 .right {
-    float: right;
-    /* overflow: scroll; */
-    margin-right: 10px;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    padding: 125, 0, 0, 0px;
+    margin: 25, 15, 0, 15px;
+    overflow: scroll;
+    background-color: #ffffff;
 }
 
 #results-list {
     list-style: none;
     margin: 5px;
+    margin-top: 25px;
 }
 
 .bizHeading, .bizInfoHeading {
     margin-bottom: 5px;
+}
+
+.biz-list-info {
+    line-height: 22px;
 }
 
 .biz-rating {
@@ -123,16 +157,13 @@ main {
 }
 
 a {
-    color: #26a6e6;
+    color: #1ea1e2;
     text-decoration: none;
 }
 
 a:hover {
-    color: #185d80;
+    color: #086788;
 }
-
-
-
 
 
 
@@ -140,9 +171,74 @@ a:hover {
 
 /* When a web browser is larger than 600px,
    apply these rules */
-   @media all and (min-width: 600px) {
-    .container {
-        /* max-width: 600px; */
+   @media all and (min-width: 700px) {
+    main {
+        margin: 0 auto;
+        display: flex;
+        padding-top: 25px;
     }
 
+    .landing-page {
+        text-align: center;
+        margin: 0 2% 0 2%;
+    }
+    
+    .tag-along-logo {
+        height: auto;
+        max-width: 100%;
+        margin-top: 2%;
+    }
+    
+    .discover {
+        font-size: 2.5em;
+        margin-top: 0;
+    }
+    
+    .app-intro {
+        font-size: 1.75em;
+        margin: 0 auto;
+        padding: 2% 5% 5% 5%;
+        text-align: center;
+        width: 85%;
+    }
+
+    .search-bar {
+        font-size: 1.75em;
+    }
+
+    #js-type, #user-location {
+        font-size: 1em;
+        width: 55%;
+    }
+    
+    select, input[type=text] {
+        font-size: 1em;
+    }
+    
+    input[type="submit"] {
+        font-size: 1.75em;
+    }
+
+    .left {
+        float: left;
+        width: 100%;
+        height: 100%;
+        margin-left: 10px;
+    }
+    
+    #map {
+        float: left;
+        height: 650px;
+        width: 100%;
+        border-radius: 2px;
+    }
+    
+    .right {
+        float: right;
+        width: 500px;
+        height: 650px;
+        overflow: scroll;
+        margin-right: 10px;
+        background-color: #ffffff;
+    }
 }
