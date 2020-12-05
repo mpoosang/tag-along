@@ -7,17 +7,19 @@
     <title>Tag Along - Find Dog Friendly Businesses</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet"
         type="text/css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <header class="hero-image">
         <div class="landing-page">
-            <h1>Tag Along</h1>
-            <h3>Discover dog friendly businesses nearby!</h3>
-            <p>By choosing a category and location below, Tag Along will fetch currently open businesses that match your selection.</p>
+            <img src="photos/tag-along-logo.png" class="tag-along-logo" alt="Tag Along Logo">
+            <h1 class="discover">Discover Dog Friendly Businesses!</h1>
+            <p class="app-intro">By choosing a category and location below, Tag Along will fetch currently open businesses that match your selection.</p>
             <form id="js-search-form" role="search">
                 <div class="search-bar search-left">
-                    <span class="title-type">Type: </span>
+                    <label for="js-type">Type: </label>
                     <select name="type" id="js-type" size="1" required>
                         <option value="">select type</option>
                         <option value="restaurants">Restaurants</option>
@@ -36,35 +38,7 @@
             <p id="js-error-message" class="error-message"></p>
         </div>
     </header>
-    
-    <!-- <div class="landing-page">
-        <header>
-            <h1>Tag Along</h1>
-        </header>
-
-        <h3>Discover dog friendly businesses nearby!</h3>
-        <p>By choosing a category and location below, Tag Along will fetch currently open businesses that match your selection.</p>
-        <form id="js-search-form" role="search">
-            <div class="search-bar search-left">
-                <span>Type: </span>
-                <select name="type" id="js-type" size="1" required>
-                    <option value="">select type</option>
-                    <option value="restaurants">Restaurants</option>
-                    <option value="coffee">Coffee</option>
-                    <option value="bars">Bars</option>
-                    <option value="parks">Parks</option>
-                    <option value="hotels">Hotels</option>
-                </select>
-            </div>
-            <div class="search-bar search-right">
-                <label for="user-location">Location: </label>
-                <input id="user-location" type="text" placeholder="address, city, or zip" required>
-            </div>
-                <input type="submit" id="fetch" value="Fetch!">
-        </form>
-        <p id="js-error-message" class="error-message"></p>
-    </div> -->
-
+   
     <main class="js-results hidden">
         <div class="left">
             <div id="map"></div>
