@@ -3,8 +3,6 @@
 // Global Variables
 let map;
 let infoObj = [];
-// let infowindow;
-// let autocomplete;
 
 let mapState = {
     latitude: 34.061491, 
@@ -37,8 +35,7 @@ function getListings(userType, inputLocation) {
         location: inputLocation,
         categories: userType,
         open_now: true,
-        // limit: '5',
-        radius: 10000,
+        radius: 8000,
         sort_by: 'distance'
     };
 
@@ -79,10 +76,12 @@ function displayResults(responseJson) {
     for (let i = 0; i < responseJson.businesses.length; i++) {
         // for each object in the array, add a list item to the results
         $('#results-list').append(
-            `<li><h3 class='bizHeading'><a href="${responseJson.businesses[i].url}">${responseJson.businesses[i].name}</a></h3>
+            `<li><h3 class='bizHeading'><a href="${responseJson.businesses[i].url}" target="_blank">${responseJson.businesses[i].name}</a></h3>
+            <div class='biz-list-info'>
             <div class='biz-food'><span class='biz-rating'>${responseJson.businesses[i].rating}</span> / <span class='biz-type'>${responseJson.businesses[i].categories[0].title}</span></div>
             <div class='biz-address'>${responseJson.businesses[i].location.display_address}</div>
             <div class='biz-phone'>${responseJson.businesses[i].display_phone}</div>
+            </div>
             </li>
             `
         )
@@ -109,7 +108,7 @@ function displayResults(responseJson) {
         mapState.latitude = responseJson.region.center.latitude;
         mapState.longitude = responseJson.region.center.longitude;
         mapState.map.setCenter({lat: mapState.latitude, lng: mapState.longitude});
-        mapState.map.setZoom(13);
+        mapState.map.setZoom(12);
 
     }
     // //display the results section 
@@ -149,25 +148,3 @@ function handleSubmit() {
 }
 
 $(handleSubmit);
-
-
-
-
-// autocomplete location name in form
-// function activatePlacesSearch() {
-//     let options = {
-//         types: ['(regions)']
-//     };
-//     let input = document.getElementById('search-term');
-//     let autocomplete = new google.maps.places.Autocomplete(input, options);
-// }
-
-
-// Reset search results when user clicks on logo
-// $('').click((event) => {
-//     event.preventDefault();
-//     // Remove all relevant values
-//     $('#location').val('');
-//     $('.searchResults').remove();
-//     window.searchText = '';
-// });
