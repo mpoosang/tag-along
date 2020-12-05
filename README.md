@@ -1,5 +1,3 @@
-Thinkful: API Hack Capstone
-
 # Tag Along
 
 An application that helps dog owners search for currently open dog friendly businesses (restaurants, coffee shops, bars, parks, hotels) in a selected location.
@@ -9,10 +7,10 @@ An application that helps dog owners search for currently open dog friendly busi
 
 ## Screenshots
 
-Landing Page:
+Landing Page:\
 ![Landing page screenshot](https://github.com/mpoosang/tag-along/blob/main/photos/tag-along-landing-page.png?raw=true)
 
-Results Page:
+Results Page:\
 ![Results page screenshot](https://github.com/mpoosang/tag-along/blob/main/photos/tag-along-results-page.png?raw=true)
 
 ## Built With
